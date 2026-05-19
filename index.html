@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handy Portofolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Barlow', sans-serif;
+        }
+
+        body {
+            background-color: #030504;
+            color: #ffffff;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .portfolio-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .web-header {
+            position: absolute;
+            top: 50px;
+            left: 4%;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 20;
+            color: #ffffff;
+        }
+
+        .web-footer {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #555;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 20;
+        }
+
+        .text-red {
+            color: #ff0000;
+        }
+
+        .photo-container {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 585px;
+            height: 585px;
+            z-index: 10;
+            transition: left 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+            left: 52%;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .p1-section {
+            position: absolute;
+            text-align: left;
+            opacity: 1;
+            transition: transform 0.7s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.6s ease;
+            z-index: 5;
+        }
+
+        .p1-sec1 {
+            top: 16%;
+            left: 10%;
+        }
+        .p1-sec1 h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 54px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .p1-sec1 .subtitle {
+            font-family: 'Barlow', sans-serif;
+            font-size: 17px;
+            font-weight: 500;
+            color: #888;
+            letter-spacing: 1px;
+        }
+
+        .p1-sec2 {
+            top: 40%;
+            left: 4%;
+            width: 44%;
+        }
+        .p1-sec2 .bio {
+            font-family: 'Barlow', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.85;
+            color: #ccc;
+            text-align: justify;
+        }
+
+        .p1-sec3 {
+            bottom: 14%;
+            left: 10%;
+        }
+        .p1-sec3 p {
+            font-family: 'Barlow', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 9px;
+            color: #ccc;
+        }
+
+        .p2-section {
+            position: absolute;
+            text-align: right;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(80px);
+            transition: transform 0.7s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.6s ease;
+            z-index: 5;
+        }
+
+        .p2-sec1 {
+            top: 14%;
+            right: 10%;
+        }
+
+        .p2-sec2 {
+            top: 44%;
+            right: 16%;
+        }
+
+        .p2-sec3 {
+            bottom: 14%;
+            right: 6%;
+        }
+
+        .p2-section h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .p2-section ul {
+            list-style: none;
+        }
+        .p2-section ul li {
+            font-family: 'Barlow', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 9px;
+            color: #ccc;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            z-index: 30;
+            transition: opacity 0.3s, transform 0.7s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.7s;
+        }
+        .nav-btn:hover { opacity: 0.5; }
+        .nav-btn p { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 1px; margin-bottom: 5px; }
+        .nav-btn .arrow { font-size: 52px; font-weight: 100; line-height: 0.3; }
+
+        .more-btn {
+            right: 4%;
+            text-align: right;
+            opacity: 1;
+        }
+        .back-btn {
+            left: 4%;
+            text-align: left;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-50%) translateX(-40px);
+        }
+
+        .active-state .photo-container {
+            left: 8%;
+        }
+
+        .active-state .p1-section {
+            opacity: 0;
+            transform: translateX(-80px);
+            pointer-events: none;
+        }
+
+        .active-state .p2-section {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        .active-state .more-btn {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-50%) translateX(40px);
+        }
+        .active-state .back-btn {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(-50%) translateX(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="web-header">Website Portofolio</div>
+
+    <div class="portfolio-frame" id="mainCanvas">
+        
+        <button class="nav-btn more-btn" onclick="nextPage()">
+            <p>More...</p>
+            <div class="arrow">&rsaquo;</div>
+        </button>
+
+        <button class="nav-btn back-btn" onclick="prevPage()">
+            <p>Back</p>
+            <div class="arrow">&lsaquo;&lsaquo;</div>
+        </button>
+
+        <div class="photo-container">
+            <img src="https://raw.githubusercontent.com/handynauvals-stack/HANDY_PORTOFOLIO/main/me.png" alt="Handy" class="profile-photo">
+        </div>
+
+        <div class="p1-section p1-sec1">
+            <h1 class="text-red">HANDY NAUVAL SYARIQ</h1>
+            <p class="subtitle">Mahasiswa Universitas Brawijaya</p>
+        </div>
+
+        <div class="p1-section p1-sec2">
+            <p class="bio">
+                Saya mahasiswa Universitas Brawijaya fakultas ilmu komputer memiliki kepribadian disiplin, 
+                pantang menyerah, dan berbekal pendidikan selama 12 tahun. Sedang mencari pengalaman baru 
+                dan ilmu baru diberbagai bidang.
+            </p>
+        </div>
+
+        <div class="p1-section p1-sec3">
+            <p>Lives: Sawojajar I, Malang, Jawa Timur</p>
+            <p>Contact: +62 815 5394 9086</p>
+            <p>Email: handynauvals@student.ub.ac.id</p>
+        </div>
+
+        <div class="p2-section p2-sec1">
+            <h2>COLLAGE</h2>
+            <ul>
+                <li>MIN MALANG 1 <span class="text-red">(2013 - 2019)</span></li>
+                <li>SMPN 21 MALANG <span class="text-red">(2019 - 2022)</span></li>
+                <li>SMA NEGERI TARUNA NALA JATIM <span class="text-red">(2022 - 2025)</span></li>
+                <li>UNIVERSITAS BRAWIJAYA <span class="text-red">(2025 - Sekarang)</span></li>
+            </ul>
+        </div>
+
+        <div class="p2-section p2-sec2">
+            <h2>SERTIFICATION</h2>
+            <ul>
+                <li>Panahan Piala Gubernur <span class="text-red">(Juara II)</span></li>
+                <li>Josai International University <span class="text-red">(Student Exchange)</span></li>
+            </ul>
+        </div>
+
+        <div class="p2-section p2-sec3">
+            <h2>HOBIES</h2>
+            <ul>
+                <li>Simple Coding Creation</li>
+                <li>Motorcycling</li>
+                <li>Simple workout</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="web-footer">@2025 HNS - Portofolio</div>
+
+    <script>
+        const canvas = document.getElementById('mainCanvas');
+
+        function nextPage() {
+            canvas.classList.add('active-state');
+        }
+
+        function prevPage() {
+            canvas.classList.remove('active-state');
+        }
+    </script>
+</body>
+</html>
