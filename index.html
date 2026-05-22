@@ -71,6 +71,9 @@
             z-index: 10;
             transition: left 0.75s cubic-bezier(0.76, 0, 0.24, 1);
             left: 52%;
+            background: transparent;
+            border: none;
+            outline: none;
         }
 
         .profile-photo {
@@ -78,6 +81,8 @@
             height: 100%;
             object-fit: contain;
             object-position: center;
+            background: transparent;
+            filter: none;
         }
 
         .p1-section {
@@ -207,6 +212,7 @@
             transform: translateY(-50%) translateX(-40px);
         }
 
+        /* ─── DESKTOP ACTIVE STATE ─── */
         .active-state .photo-container {
             left: 8%;
         }
@@ -232,6 +238,205 @@
             opacity: 1;
             pointer-events: auto;
             transform: translateY(-50%) translateX(0);
+        }
+
+
+        /* ═══════════════════════════════════════════
+           MOBILE RESPONSIVE — max-width: 768px
+           ═══════════════════════════════════════════ */
+        @media (max-width: 768px) {
+
+            .web-header {
+                top: 18px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 12px;
+                letter-spacing: 1.5px;
+                white-space: nowrap;
+            }
+
+            .web-footer {
+                font-size: 10px;
+                bottom: 8px;
+                letter-spacing: 1.5px;
+            }
+
+            /* ─── FOTO: tetap di atas tengah, tidak bergerak ─── */
+            .photo-container {
+                top: 40px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: 200px !important;
+                height: 200px !important;
+                background: transparent !important;
+                border: none !important;
+                outline: none !important;
+                transition: none !important;
+            }
+
+            .profile-photo {
+                filter: none !important;
+                background: transparent !important;
+                mix-blend-mode: normal !important;
+            }
+
+            /* Active-state: foto TIDAK bergerak di mobile */
+            .active-state .photo-container {
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+            }
+
+            /* ─── P1 SECTIONS ─── */
+            /* Foto: top 40px, tinggi 200px → bawah foto ~240px */
+
+            .p1-section {
+                text-align: center !important;
+            }
+
+            /* Nama & subtitle — tepat di bawah foto */
+            .p1-sec1 {
+                top: 248px !important;
+                left: 5% !important;
+                right: 5% !important;
+                width: auto !important;
+            }
+            .p1-sec1 h1 {
+                font-size: 32px !important;
+                letter-spacing: 1px !important;
+                margin-bottom: 4px !important;
+            }
+            .p1-sec1 .subtitle {
+                font-size: 13px !important;
+            }
+
+            /* Bio — di bawah nama (~248+80px) */
+            .p1-sec2 {
+                top: 340px !important;
+                left: 6% !important;
+                width: 88% !important;
+            }
+            .p1-sec2 .bio {
+                font-size: 13px !important;
+                line-height: 1.7 !important;
+                text-align: center !important;
+            }
+
+            /* Kontak — di atas tombol nav, jaga jarak cukup */
+            .p1-sec3 {
+                bottom: 72px !important;
+                left: 0 !important;
+                right: 0 !important;
+                width: 100% !important;
+            }
+            .p1-sec3 p {
+                font-size: 12px !important;
+                margin-bottom: 5px !important;
+                text-align: center !important;
+            }
+
+            /* Active state teks P1 */
+            .active-state .p1-section {
+                opacity: 0;
+                transform: translateX(-80px);
+                pointer-events: none;
+            }
+
+            /* ─── P2 SECTIONS ─── */
+            .p2-section {
+                text-align: center !important;
+            }
+
+            /* Pendidikan — tepat di bawah foto */
+            .p2-sec1 {
+                top: 248px !important;
+                right: 5% !important;
+                left: 5% !important;
+                width: auto !important;
+            }
+
+            /* Sertifikasi */
+            .p2-sec2 {
+                top: auto !important;
+                bottom: 160px !important;
+                right: 5% !important;
+                left: 5% !important;
+            }
+
+            /* Hobi — di atas tombol nav */
+            .p2-sec3 {
+                bottom: 72px !important;
+                right: 5% !important;
+                left: 5% !important;
+                width: auto !important;
+            }
+
+            .p2-section h2 {
+                font-size: 20px !important;
+                letter-spacing: 3px !important;
+                margin-bottom: 8px !important;
+            }
+
+            .p2-section ul li {
+                font-size: 13px !important;
+                margin-bottom: 5px !important;
+            }
+
+            /* Active state teks P2 */
+            .active-state .p2-section {
+                opacity: 1;
+                transform: translateX(0);
+                pointer-events: auto;
+            }
+
+            /* ─── NAV BUTTONS: bawah layar, tengah ─── */
+            .nav-btn {
+                top: auto !important;
+                bottom: 20px !important;
+                transform: none !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .nav-btn p {
+                font-size: 12px !important;
+                margin-bottom: 2px !important;
+            }
+
+            .nav-btn .arrow {
+                font-size: 32px !important;
+                line-height: 1 !important;
+            }
+
+            /* More button: kanan bawah */
+            .more-btn {
+                right: 10% !important;
+                left: auto !important;
+                opacity: 1;
+                transform: none !important;
+            }
+
+            /* Back button: kiri bawah, awalnya tersembunyi */
+            .back-btn {
+                left: 10% !important;
+                right: auto !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+                transform: none !important;
+            }
+
+            /* Active state tombol */
+            .active-state .more-btn {
+                opacity: 0 !important;
+                pointer-events: none !important;
+                transform: none !important;
+            }
+
+            .active-state .back-btn {
+                opacity: 1 !important;
+                pointer-events: auto !important;
+                transform: none !important;
+            }
         }
     </style>
 </head>
