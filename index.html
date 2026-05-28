@@ -212,7 +212,6 @@
             transform: translateY(-50%) translateX(-40px);
         }
 
-        /* ─── DESKTOP ACTIVE STATE ─── */
         .active-state .photo-container {
             left: 8%;
         }
@@ -240,10 +239,6 @@
             transform: translateY(-50%) translateX(0);
         }
 
-
-        /* ═══════════════════════════════════════════
-           MOBILE RESPONSIVE — max-width: 768px
-           ═══════════════════════════════════════════ */
         @media (max-width: 768px) {
 
             .web-header {
@@ -261,7 +256,6 @@
                 letter-spacing: 1.5px;
             }
 
-            /* ─── FOTO: tetap di atas tengah, tidak bergerak ─── */
             .photo-container {
                 top: 40px !important;
                 left: 50% !important;
@@ -280,20 +274,15 @@
                 mix-blend-mode: normal !important;
             }
 
-            /* Active-state: foto TIDAK bergerak di mobile */
             .active-state .photo-container {
                 left: 50% !important;
                 transform: translateX(-50%) !important;
             }
 
-            /* ─── P1 SECTIONS ─── */
-            /* Foto: top 40px, tinggi 200px → bawah foto ~240px */
-
             .p1-section {
-                text-align: center !important;
+                text-align: right !important;
             }
 
-            /* Nama & subtitle — tepat di bawah foto */
             .p1-sec1 {
                 top: 248px !important;
                 left: 5% !important;
@@ -309,7 +298,6 @@
                 font-size: 13px !important;
             }
 
-            /* Bio — di bawah nama (~248+80px) */
             .p1-sec2 {
                 top: 340px !important;
                 left: 6% !important;
@@ -318,10 +306,9 @@
             .p1-sec2 .bio {
                 font-size: 13px !important;
                 line-height: 1.7 !important;
-                text-align: center !important;
+                text-align: right !important;
             }
 
-            /* Kontak — di atas tombol nav, jaga jarak cukup */
             .p1-sec3 {
                 bottom: 72px !important;
                 left: 0 !important;
@@ -331,22 +318,20 @@
             .p1-sec3 p {
                 font-size: 12px !important;
                 margin-bottom: 5px !important;
-                text-align: center !important;
+                text-align: right !important;
+                padding-right: 6% !important;
             }
 
-            /* Active state teks P1 */
             .active-state .p1-section {
                 opacity: 0;
                 transform: translateX(-80px);
                 pointer-events: none;
             }
 
-            /* ─── P2 SECTIONS ─── */
             .p2-section {
-                text-align: center !important;
+                text-align: left !important;
             }
 
-            /* Pendidikan — tepat di bawah foto */
             .p2-sec1 {
                 top: 248px !important;
                 right: 5% !important;
@@ -354,7 +339,6 @@
                 width: auto !important;
             }
 
-            /* Sertifikasi */
             .p2-sec2 {
                 top: auto !important;
                 bottom: 160px !important;
@@ -362,7 +346,6 @@
                 left: 5% !important;
             }
 
-            /* Hobi — di atas tombol nav */
             .p2-sec3 {
                 bottom: 72px !important;
                 right: 5% !important;
@@ -381,14 +364,12 @@
                 margin-bottom: 5px !important;
             }
 
-            /* Active state teks P2 */
             .active-state .p2-section {
                 opacity: 1;
                 transform: translateX(0);
                 pointer-events: auto;
             }
 
-            /* ─── NAV BUTTONS: bawah layar, tengah ─── */
             .nav-btn {
                 top: auto !important;
                 bottom: 20px !important;
@@ -408,7 +389,6 @@
                 line-height: 1 !important;
             }
 
-            /* More button: kanan bawah */
             .more-btn {
                 right: 10% !important;
                 left: auto !important;
@@ -416,7 +396,6 @@
                 transform: none !important;
             }
 
-            /* Back button: kiri bawah, awalnya tersembunyi */
             .back-btn {
                 left: 10% !important;
                 right: auto !important;
@@ -425,7 +404,6 @@
                 transform: none !important;
             }
 
-            /* Active state tombol */
             .active-state .more-btn {
                 opacity: 0 !important;
                 pointer-events: none !important;
@@ -492,8 +470,10 @@
         <div class="p2-section p2-sec2">
             <h2>SERTIFICATION</h2>
             <ul>
-                <li>Panahan Piala Gubernur <span class="text-red">(Juara II)</span></li>
-                <li>Josai International University <span class="text-red">(Student Exchange)</span></li>
+                <li><a href="https://drive.google.com/drive/folders/1loY2ogssj5DIaXyUuQgdUXilh_8XrdKZ?usp=sharing"> Piala Gubernur </a><span class="text-red">(Juara II)</span></li>
+                <li><a href="https://drive.google.com/file/d/1CnFr47hO2lkZZkoFr_IHuhrOYu8j8ub1/view?usp=sharing">Josai International University </a><span class="text-red">(Student Exchange)</span></li>
+                <li><a href="https://drive.google.com/file/d/18if4NxOegiizf4NyPY4UORcAJcW1mnnH/view?usp=sharing">Daio Bunka University </a><span class="text-red">(Student Exchange)</span></li>
+                <li><a href="https://drive.google.com/file/d/1JgLFOIj_APJKnarFSl30YNb9IE3oKn0N/view?usp=sharing">Kansai University </a><span class="text-red">(Student Exchange)</span></li>
             </ul>
         </div>
 
